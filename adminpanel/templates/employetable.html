@@ -1,0 +1,60 @@
+
+{%extends 'base.html'%}
+
+
+
+{%block body_block%}
+<h1 style="text-align: center;">Employee Table</h1>
+<br>
+<table class="table table-bordered ">
+
+    <!--Table head-->
+    <thead>
+      <tr style="background-color: chartreuse;" >
+        <th>Id</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Position</th>
+        <th>Age</th>
+        <th>phone</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <!--Table head-->
+  
+    <!--Table body-->
+    {%for emp in employees%}
+    <tbody >
+      <tr>
+        <th scope="row">{{emp.id}}</th>
+        <td>{{emp.name}}</td>
+        <td>{{emp.gender}}</td>
+        <td>{{emp.position}}</td>
+        <td>{{emp.age}}</td>
+        <td>{{emp.phone}}</td>
+        <td>
+        
+          <button type="button" class="btn btn-info"><a href="{%url 'viewemp' emp.id%}" style="color: white;">View</a></button>
+          {%if request.user.is_superuser%}
+          <button type="button" class="btn btn-info"><a href="{%url 'delete' emp.id%}" style="color: white;">Delete</a></button>
+          <button type="button" class="btn btn-info"><a href="{%url 'update' emp.id%}" style="color: white;">Update</a></button>
+          {%endif%}
+          {%endfor%}
+        </td>
+      </tr>
+    </tbody>
+
+    <style>
+      th, td {
+    font-size: 18px;
+  }
+    </style>
+    
+    
+
+
+     
+  </table>
+
+  {%endblock%}
+  

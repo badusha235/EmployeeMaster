@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+
+
+{%block body_block%}
+<body>
+    
+
+<div class="row mt-5">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <form action="" method="POST">
+            {%csrf_token%}
+            {{form.as_p}}
+            <br>
+            <input type="submit"value="UpdateEomployee" class="btn btn-info">
+        </form>
+    </div>
+</div>
+</body>
+<style>
+     body {
+    /* background-color: #faeaed */
+    background-image: url("https://images.unsplash.com/photo-1497864979123-ef3595423b92?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    
+  background-size: 100%;
+}
+</style>
+        
+        
+{%endblock%}

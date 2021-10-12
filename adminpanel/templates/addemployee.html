@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+{%load static%}
+
+
+{%block body_block%}
+<body>
+	
+
+<html lang="en">
+<head>
+	<title>Create Employee</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{%static 'images/icons/favicon.ico'%}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/bootstrap/css/bootstrap.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'css/main.css' %}">
+<!--===============================================================================================-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+
+
+	<form action="" method="POST" enctype="multipart/form-data">
+		<div class="container-contact100">
+			{%csrf_token%}
+
+			<div class="wrap-contact100">
+				<form class="contact100-form validate-form">
+					<span class="contact100-form-title">
+						Create Employee
+					</span>
+	
+					
+					{%if msg%}
+					<script>
+						swal("Saved!", "{{msg}}", "success");
+					</script>
+					{%endif%}
+
+
+					{% if form.errors %}
+					<script>
+						swal({
+								title: "Error",
+								text: "Check Field values",
+								icon: "warning",
+								buttons: true,
+								dangerMode: true,
+							})
+					</script>
+
+					
+	
+                    <div id="errors" style="width:100%;margin-top: 20px; background-color: rgb(146, 241, 45)" >
+                      <div class="inner">
+                        <p>There were some errors in the information you entered. Please correct the following:</p>
+                        <ul style="text-align: center;">
+                          {% for field in form %}
+                            {% if field.errors %}<li>{{ field.label }}: {{ field.errors|striptags }}</li>
+							
+							
+							{% endif %}
+                          {% endfor %}
+                        </ul>
+                      </div>
+                    </div>
+				
+
+                    {% endif %}
+					<br>
+					<div class="wrap-input100 validate-input" data-validate="Please enter your name">
+						<input class="input100" type="text" name="name" placeholder="Full Name">
+						<span class="focus-input100"></span>
+					</div>
+	
+					<div class="wrap-input100 validate-input" data-validate = "Please enter your email: e@a.x">
+						<input class="input100" type="text" name="email" placeholder="E-mail">
+						<span class="focus-input100"></span>
+					</div>
+					
+	
+					<div class="wrap-input100 validate-input" data-validate = "Please enter your phone">
+						<input class="input100" type="text" name="phone" placeholder="phone">
+						<span class="focus-input100"></span>
+					</div>
+	
+					<div class="wrap-input100 validate-input" data-validate = "Please enter your message">
+						<textarea class="input100" name="address" placeholder="address"></textarea>
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Please enter your gender">
+						<input class="input100" type="text" name="gender" placeholder="male or female">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Please enter your age">
+						<input class="input100" type="text" name="age" placeholder="age">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Please enter your position">
+						<input class="input100" type="text" name="position" placeholder="employment position">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "work mode">
+						<input class="input100" type="text" name="Employment_type" placeholder="parttime or fulltime">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "choose your image">
+						<input class="input100" type="file" name="image" placeholder="choose your image">
+						<span class="focus-input100"></span>
+					</div>
+					
+	
+					<div class="container-contact100-form-btn">
+						<button class="contact100-form-btn">
+							<span>
+								<i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
+								Create Employee
+							</span>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</form>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{%static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{%static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'js/main.js' %}"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
+
+
+{%endblock%}

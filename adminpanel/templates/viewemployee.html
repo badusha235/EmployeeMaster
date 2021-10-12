@@ -1,0 +1,131 @@
+{%extends 'base.html'%}
+
+{%load static%}
+
+
+
+
+{%block body_block%}
+<body>
+    
+
+
+<div class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="card rounded">
+        <div class=" d-block justify-content-center">
+            <div class="area1 p-3 py-5"> </div>
+            <div class="area2 p- text-center px-3">
+                <div class="image mr-3"> <img src="{{employee.image.url}}" class="rounded-circle" width="100" />
+                    <h4 class=" name mt-3 ">{{employee.name}}</h4>
+                    <p class="information mt-3 text-justify"><strong style="color: black;">Position:</strong>{{employee.position}}</p>
+                    <p class="information mt-3 text-justify"><strong style="color: black;">Age:</strong>{{employee.age}}</p>
+                    <p class="information mt-3 text-justify"><strong style="color: black;">Gender:</strong>{{employee.gender}}</p>
+                    <p class="information mt-3 text-justify"><strong style="color: black;">Email:</strong>{{employee.email}}</p>
+                    <p class="information mt-3 text-justify"><strong style="color: black;">Phone:</strong>{{employee.phone}}</p>
+                    <p class="information mt-3 text-justify"><strong style="color: black;">Address:</strong>{{employee.address}}</p>
+                    <p class="information mt-3 text-justify"><strong style="color: black;">Address:</strong>{{employee.Employment_type}}</p>
+                    
+                </div>
+                <div> </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+<style>
+    body {
+    /* background-color: #faeaed */
+    background-image: url("https://images.unsplash.com/photo-1497864979123-ef3595423b92?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    
+  background-size: 100%;
+}
+
+.card {
+    width: 400px;
+    border: none;
+    border-radius: 14px !important
+}
+
+.area1 {
+    background-color: #b5b2f1;
+    border-top-left-radius: 14px !important;
+    border-top-right-radius: 14px !important;
+    padding-top: 83px !important
+}
+
+.image {
+    top: -62px;
+    position: relative
+}
+
+.image img {
+    box-shadow: 5px 6px 6px 2px #091725
+}
+
+.area2 {
+    background-color: #fff;
+    border-bottom-left-radius: 14px !important;
+    border-bottom-right-radius: 14px !important
+}
+
+.name {
+    font-size: 25px;
+    font-weight: 650
+}
+
+.information {
+    color: #9FA8DA;
+    font-weight: 500;
+    font-size: 16px
+}
+
+.list-icons {
+    display: inline-flex;
+    color: #C5CAE9
+}
+
+.list-icons li {
+    list-style: none;
+    padding: 12px;
+    border-radius: 10px;
+    width: 49px;
+    margin-right: 10px
+}
+
+.list-icons li i {
+    font-size: 17px;
+    color: #fff
+}
+
+@media (max-width:700px) {
+    .list-icons {
+        display: block
+    }
+}
+
+.facebook {
+    background: #3b5998
+}
+
+.instagram {
+    background: #3f729b
+}
+
+.youtube {
+    background: #ff0000
+}
+
+.whatsapp {
+    background: #4dc247
+}
+
+.pinterest {
+    background: #cb2027
+}
+</style>
+
+
+
+{%endblock%}
